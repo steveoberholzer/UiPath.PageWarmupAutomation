@@ -1,0 +1,54 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "oEmailDetails&Sequence_1",
+        "oWarmupResult&Sequence_2",
+        "iGeneralTimeout&Sequence_1",
+        "sNotificationEmailAddresses&Sequence_1",
+        "bNotificationsEnabled&Sequence_1",
+        "sPageConfigs&Sequence_1",
+        "oPageConfigs&Sequence_1",
+        "oWarmupResults&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/Config/GetAssets.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_sPageConfig",
+        "out_bNotificationsEnabled",
+        "out_sNotificationEmailAddresses",
+        "out_iGeneralTimeout"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/Automation/WarmupPage.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_oResult",
+        "in_iGeneralTimeout",
+        "in_oPageConfig"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
