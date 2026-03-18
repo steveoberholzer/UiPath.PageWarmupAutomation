@@ -1,0 +1,6 @@
+{
+  "Name": "WebApplicationWarmup",
+  "ProjectType": "Process",
+  "Description": "Navigates to a configurable list of web application pages to pre-warm them before business hours. Each page URL, element wait conditions, and timeout behaviour are driven by Orchestrator Assets, requiring no code changes to add or modify pages. Optionally sends an HTML summary email on completion reporting the load status and timing of each page.",
+  "MainFile": "Main.xaml"
+}

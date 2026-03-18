@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplicationWarmup.Core</name>
+    </assembly>
+    <members>
+        <member name="M:WebApplicationWarmup.WorkflowRunnerService.GetAssets(System.Boolean)">
+            <summary>
+            Invokes the Workflows/Config/GetAssets.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:WebApplicationWarmup.WorkflowRunnerService.Main(System.Boolean)">
+            <summary>
+            Invokes the Main.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:WebApplicationWarmup.WorkflowRunnerService.PageConfigs(System.Boolean)">
+            <summary>
+            Invokes the Workflows/Parsing/Services/PageConfigs.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:WebApplicationWarmup.WorkflowRunnerService.WarmupPage(WebApplicationWarmup.Workflows.Parsing.Models.PageConfig,System.Boolean,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Invokes the Workflows/Automation/WarmupPage.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:WebApplicationWarmup.WorkflowRunnerService.WarmupResult(System.Boolean)">
+            <summary>
+            Invokes the Workflows/Models/WarmupResult.cs
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+    </members>
+</doc>
