@@ -14,9 +14,14 @@
             Invokes the Workflows/Config/GetAssets.xaml
             </summary>
         </member>
-        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPage(K2Warmup.Workflows.Parsing.Models.PageConfig,System.Int32)">
+        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPage(System.String,System.Boolean,System.String,System.String,System.Int32)">
             <summary>
             Invokes the Workflows/Automation/WarmupPage.xaml
+            </summary>
+        </member>
+        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPageShell(K2Warmup.Workflows.Parsing.Models.PageConfig,System.Int32)">
+            <summary>
+            Invokes the Workflows/Automation/WarmupPageShell.xaml
             </summary>
         </member>
     </members>

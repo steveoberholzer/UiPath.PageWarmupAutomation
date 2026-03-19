@@ -34,9 +34,17 @@ namespace K2Warmup
         /// <summary>
         /// Invokes the Workflows/Automation/WarmupPage.xaml
         /// </summary>
-        public K2Warmup.Workflows.Models.WarmupResult WarmupPage(K2Warmup.Workflows.Parsing.Models.PageConfig in_oPageConfig, int in_iGeneralTimeout)
+        public void WarmupPage(string in_sUrl, bool in_bWaitForElement, string in_sElementSelector, string in_sSelectorType, int in_iTimeoutOverride)
         {
-            var result = _runWorkflowHandler(@"Workflows\Automation\WarmupPage.xaml", new Dictionary<string, object> { { "in_oPageConfig", in_oPageConfig }, { "in_iGeneralTimeout", in_iGeneralTimeout } }, default, default, default);
+            var result = _runWorkflowHandler(@"Workflows\Automation\WarmupPage.xaml", new Dictionary<string, object> { { "in_sUrl", in_sUrl }, { "in_bWaitForElement", in_bWaitForElement }, { "in_sElementSelector", in_sElementSelector }, { "in_sSelectorType", in_sSelectorType }, { "in_iTimeoutOverride", in_iTimeoutOverride } }, default, default, default);
+        }
+
+        /// <summary>
+        /// Invokes the Workflows/Automation/WarmupPageShell.xaml
+        /// </summary>
+        public K2Warmup.Workflows.Models.WarmupResult WarmupPageShell(K2Warmup.Workflows.Parsing.Models.PageConfig in_oPageConfig, int in_iGeneralTimeout)
+        {
+            var result = _runWorkflowHandler(@"Workflows\Automation\WarmupPageShell.xaml", new Dictionary<string, object> { { "in_oPageConfig", in_oPageConfig }, { "in_iGeneralTimeout", in_iGeneralTimeout } }, default, default, default);
             return (K2Warmup.Workflows.Models.WarmupResult)result["out_oResult"];
         }
     }
