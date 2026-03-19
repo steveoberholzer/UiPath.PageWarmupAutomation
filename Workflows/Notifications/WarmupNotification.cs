@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using K2Warmup.Workflows.Models;
 
@@ -14,45 +15,45 @@ namespace K2Warmup.Workflows.Notifications
 
         public WarmupNotification(string notificationEmailAddresses, List<WarmupResult> warmupResults)
         {
-            To = ParseEmailAddresses(notificationEmailAddresses);
-            Subject = BuildSubject(warmupResults);
-            HtmlBody = BuildHtmlBody(warmupResults);
+            // Capture once so Subject and HtmlBody are consistent
+            var reportTime = DateTime.Now;
+
+            var results = warmupResults
+                ?.Where(r => r != null)
+                .ToList()
+                ?? new List<WarmupResult>();
+
+            To = ParseEmailAddresses(notificationEmailAddresses ?? string.Empty);
+            Subject = BuildSubject(results, reportTime);
+            HtmlBody = BuildHtmlBody(results, reportTime);
         }
 
         private string ParseEmailAddresses(string emailAddresses)
         {
             var addresses = emailAddresses
-                .Split(new char[] { ',', ';', ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Split(new char[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(e => e.Trim())
                 .Where(e => !string.IsNullOrEmpty(e));
 
             return string.Join(";", addresses);
         }
 
-        private string BuildSubject(List<WarmupResult> warmupResults)
+        private string BuildSubject(List<WarmupResult> results, DateTime reportTime)
         {
-            int total = 0;
-            int failed = 0;
-            try
-            {
-                total = warmupResults.Count;
-            }
-            catch { }
-            try
-            {
-                failed = warmupResults.Where(r => !r.Success).Count();
-            }
-            catch { }
+            int total = results.Count;
+            int failed = results.Count(r => !r.Success);
 
-            string status = failed == 0 ? "All Pages Warmed Successfully" : $"{failed} of {total} Pages Failed";
+            string status = failed == 0
+                ? "All Pages Warmed Successfully"
+                : $"{failed} of {total} Pages Failed";
 
-            return $"Web Application Warmup Report – {DateTime.Now:yyyy-MM-dd} – {status}";
+            return $"Web Application Warmup Report – {reportTime:yyyy-MM-dd} – {status}";
         }
 
-        private string BuildHtmlBody(List<WarmupResult> warmupResults)
+        private string BuildHtmlBody(List<WarmupResult> results, DateTime reportTime)
         {
-            int total = warmupResults.Count;
-            int succeeded = warmupResults.Where(r => r != null).Count(r => r.Success);
+            int total = results.Count;
+            int succeeded = results.Count(r => r.Success);
             int failed = total - succeeded;
 
             var sb = new StringBuilder();
@@ -72,8 +73,8 @@ namespace K2Warmup.Workflows.Notifications
             sb.AppendLine("  .error-detail { font-size: 12px; color: #e74c3c; margin-top: 4px; }");
             sb.AppendLine("</style></head><body>");
 
-            sb.AppendLine($"<h2>Web Application Warmup Report</h2>");
-            sb.AppendLine($"<p>Run on {DateTime.Now:dddd, MMMM d, yyyy} at {DateTime.Now:HH:mm:ss}</p>");
+            sb.AppendLine("<h2>Web Application Warmup Report</h2>");
+            sb.AppendLine($"<p>Run on {reportTime:dddd, MMMM d, yyyy} at {reportTime:HH:mm:ss}</p>");
 
             sb.AppendLine("<div class=\"summary\">");
             sb.AppendLine($"  <span>Total: {total}</span>");
@@ -92,44 +93,31 @@ namespace K2Warmup.Workflows.Notifications
             sb.AppendLine("  </tr></thead>");
             sb.AppendLine("  <tbody>");
 
-            foreach (var result in warmupResults)
+            foreach (var result in results)
             {
-                if (result != null)
-                {
-                    string statusLabel = result.Success
-                        ? "<span class=\"success\">Success</span>"
-                        : "<span class=\"failure\">Failed</span>";
+                string statusLabel = result.Success
+                    ? "<span class=\"success\">Success</span>"
+                    : "<span class=\"failure\">Failed</span>";
 
-                    string errorDetail = result.Error != null
-                        ? $"<div class=\"error-detail\">{System.Net.WebUtility.HtmlEncode(result.Error.Message)}</div>"
-                        : string.Empty;
+                string errorDetail = result.Error != null
+                    ? $"<div class=\"error-detail\">{WebUtility.HtmlEncode(result.Error.Message)}</div>"
+                    : string.Empty;
 
-                    string duration = result.EndTime == default
-                        ? "–"
-                        : $"{result.Duration.TotalSeconds:F1}s";
+                string duration = result.EndTime == default
+                    ? "–"
+                    : $"{result.Duration.TotalSeconds:F1}s";
 
-                    string endTime = result.EndTime == default
-                        ? "–"
-                        : result.EndTime.ToString("HH:mm:ss");
+                string endTime = result.EndTime == default
+                    ? "–"
+                    : result.EndTime.ToString("HH:mm:ss");
 
-                    sb.AppendLine("  <tr>");
-                    sb.AppendLine($"    <td>{System.Net.WebUtility.HtmlEncode(result.PageConfig.Url)}</td>");
-                    sb.AppendLine($"    <td>{statusLabel}{errorDetail}</td>");
-                    sb.AppendLine($"    <td>{result.StartTime:HH:mm:ss}</td>");
-                    sb.AppendLine($"    <td>{endTime}</td>");
-                    sb.AppendLine($"    <td>{duration}</td>");
-                    sb.AppendLine("  </tr>");
-                }
-                else
-                {
-                    sb.AppendLine("  <tr>");
-                    sb.AppendLine($"    <td>-</td>");
-                    sb.AppendLine($"    <td>-</td>");
-                    sb.AppendLine($"    <td>-</td>");
-                    sb.AppendLine($"    <td>-</td>");
-                    sb.AppendLine($"    <td>-</td>");
-                    sb.AppendLine("  </tr>");
-                }
+                sb.AppendLine("  <tr>");
+                sb.AppendLine($"    <td>{WebUtility.HtmlEncode(result.PageConfig.Url)}</td>");
+                sb.AppendLine($"    <td>{statusLabel}{errorDetail}</td>");
+                sb.AppendLine($"    <td>{result.StartTime:HH:mm:ss}</td>");
+                sb.AppendLine($"    <td>{endTime}</td>");
+                sb.AppendLine($"    <td>{duration}</td>");
+                sb.AppendLine("  </tr>");
             }
 
             sb.AppendLine("  </tbody>");

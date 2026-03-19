@@ -4,15 +4,16 @@ namespace K2Warmup.Workflows.Models
 {
     public class WarmupResult
     {
-        public PageConfig PageConfig { get; set; }
+        public PageConfig PageConfig { get; private set; }
         public bool Success { get; private set; }
         public System.Exception Error { get; private set; }
         public System.DateTime StartTime { get; private set; }
         public System.DateTime EndTime { get; private set; }
         public System.TimeSpan Duration { get { return EndTime - StartTime; }}
 
-        public WarmupResult()
+        public WarmupResult(PageConfig pageConfig)
         {
+            PageConfig = pageConfig;
             Success = false;
             Error = null;
             StartTime = System.DateTime.Now;

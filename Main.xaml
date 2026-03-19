@@ -89,7 +89,7 @@
       <AssemblyReference>K2Warmup.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="617,1373" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1281,1094" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(kwm:WarmupResult)" Name="oWarmupResults" />
       <Variable x:TypeArguments="scg:IEnumerable(kwpm:PageConfig)" Name="oPageConfigs" />
@@ -104,7 +104,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Assets" sap:VirtualizedContainerService.HintSize="555,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\\Config\\GetAssets.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get Assets" sap:VirtualizedContainerService.HintSize="515,57" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\\Config\\GetAssets.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="out_sPageConfig">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">sPageConfigs</CSharpReference>
@@ -126,7 +126,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:MultipleAssign DisplayName="Get Page Configs, Initialize Results" sap:VirtualizedContainerService.HintSize="555,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Get Page Configs, Initialize Results" sap:VirtualizedContainerService.HintSize="515,57" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -162,13 +162,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="kwpm:PageConfig" CurrentIndex="{x:Null}" DisplayName="For Each Page Config" sap:VirtualizedContainerService.HintSize="555,560" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+    <ui:ForEach x:TypeArguments="kwpm:PageConfig" CurrentIndex="{x:Null}" DisplayName="For Each Page Config" sap:VirtualizedContainerService.HintSize="515,546" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="kwpm:PageConfig">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="kwpm:PageConfig" Name="oPageConfig" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,374" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,364" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="kwm:WarmupResult" Name="oWarmupResult" />
             </Sequence.Variables>
@@ -177,7 +177,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Warmup Page" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\\Automation\\WarmupPage.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Warmup Page" sap:VirtualizedContainerService.HintSize="416,146" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\\Automation\\WarmupPage.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="kwpm:PageConfig" x:Key="in_oPageConfig">
                   <CSharpValue x:TypeArguments="kwpm:PageConfig" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">oPageConfig</CSharpValue>
@@ -196,7 +196,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InvokeWorkflowFile>
-            <uasa:AppendItemToList x:TypeArguments="kwm:WarmupResult" ItemIndex="{x:Null}" DisplayName="Save Warmup Result" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2">
+            <uasa:AppendItemToList x:TypeArguments="kwm:WarmupResult" ItemIndex="{x:Null}" DisplayName="Save Warmup Result" sap:VirtualizedContainerService.HintSize="416,158" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2">
               <uasa:AppendItemToList.ItemToAppend>
                 <InArgument x:TypeArguments="kwm:WarmupResult">
                   <CSharpValue x:TypeArguments="kwm:WarmupResult" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">oWarmupResult</CSharpValue>
@@ -223,20 +223,20 @@
         </InArgument>
       </ui:ForEach.Values>
     </ui:ForEach>
-    <If DisplayName="If Notifications Enabled" sap:VirtualizedContainerService.HintSize="555,478" sap2010:WorkflowViewState.IdRef="If_1">
+    <If DisplayName="If Notifications Enabled" sap:VirtualizedContainerService.HintSize="515,411" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">bNotificationsEnabled</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="521,296" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,261" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign DisplayName="Get Email Details" sap:VirtualizedContainerService.HintSize="479,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+          <ui:MultipleAssign DisplayName="Get Email Details" sap:VirtualizedContainerService.HintSize="479,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -275,7 +275,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4" />
+        <Sequence DisplayName="Else" sap2010:WorkflowViewState.IdRef="Sequence_4" />
       </If.Else>
     </If>
   </Sequence>
