@@ -5,6 +5,7 @@
   "main": "Main.xaml",
   "dependencies": {
     "Newtonsoft.Json": "[13.0.1]",
+    "UiPath.CodedWorkflows": "[24.10.2]",
     "UiPath.Excel.Activities": "[2.22.3]",
     "UiPath.Mail.Activities": "[1.21.1]",
     "UiPath.System.Activities": "[23.10.5]",

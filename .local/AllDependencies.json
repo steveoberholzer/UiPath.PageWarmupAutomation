@@ -4074,7 +4074,7 @@
           "lib/net5.0-windows7.0/UiPath.Activities.RuntimeGovernance.dll": {}
         }
       },
-      "UiPath.CodedWorkflows/23.10.4": {
+      "UiPath.CodedWorkflows/24.10.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -9278,7 +9278,7 @@
           "lib/net5.0-windows7.0/UiPath.Activities.RuntimeGovernance.dll": {}
         }
       },
-      "UiPath.CodedWorkflows/23.10.4": {
+      "UiPath.CodedWorkflows/24.10.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
@@ -19291,10 +19291,10 @@
         "uipath.activities.runtimegovernance.nuspec"
       ]
     },
-    "UiPath.CodedWorkflows/23.10.4": {
-      "sha512": "GjH6NirTcBVt+EZq3l/BUCZhSwsr/SpfEB/0iaGruUyRfckhY2CF9kwsqr5PkjuPrwpebjzSfp4i6VFPutmLJw==",
+    "UiPath.CodedWorkflows/24.10.2": {
+      "sha512": "qqGsYCgHKsTv/dD62/S4LP74mDM0b3vexVMfjEfXDQZulp0o1l+8QEouxkMlZ7nfZXLivQHqgleOYafQlFHKlw==",
       "type": "package",
-      "path": "uipath.codedworkflows/23.10.4",
+      "path": "uipath.codedworkflows/24.10.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -19326,7 +19326,7 @@
         "lib/net6.0/tr/UiPath.CodedWorkflows.resources.dll",
         "lib/net6.0/zh-CN/UiPath.CodedWorkflows.resources.dll",
         "lib/net6.0/zh-TW/UiPath.CodedWorkflows.resources.dll",
-        "uipath.codedworkflows.23.10.4.nupkg.sha512",
+        "uipath.codedworkflows.24.10.2.nupkg.sha512",
         "uipath.codedworkflows.nuspec"
       ]
     },
@@ -21069,6 +21069,7 @@
     "": [],
     "net8.0-windows7.0": [
       "Newtonsoft.Json >= 13.0.1 <= 13.0.1",
+      "UiPath.CodedWorkflows >= 24.10.2 <= 24.10.2",
       "UiPath.Excel.Activities >= 2.22.3 <= 2.22.3",
       "UiPath.Mail.Activities >= 1.21.1 <= 1.21.1",
       "UiPath.System.Activities >= 23.10.5 <= 23.10.5",
@@ -21084,9 +21085,9 @@
     "restore": {
       "projectUniqueName": "K2Warmup",
       "projectName": "K2Warmup",
-      "projectPath": "C:\\DEV\\Sparke\\K2Warmup\\.local",
+      "projectPath": "C:\\DEV\\Sparke\\WebApplicationWarmup\\WebApplicationWarmup\\.local",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\DEV\\Sparke\\K2Warmup\\.local",
+      "outputPath": "C:\\DEV\\Sparke\\WebApplicationWarmup\\WebApplicationWarmup\\.local",
       "UsingMicrosoftNETSdk": false,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -21102,6 +21103,11 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[13.0.1, 13.0.1]"
+          },
+          "UiPath.CodedWorkflows": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[24.10.2, 24.10.2]"
           },
           "UiPath.Excel.Activities": {
             "include": "Runtime",

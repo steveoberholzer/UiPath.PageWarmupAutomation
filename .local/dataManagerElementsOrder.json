@@ -11,16 +11,7 @@
     {
       "Path": "Main.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "oEmailDetails&Sequence_1",
-        "oWarmupResult&Sequence_2",
-        "iGeneralTimeout&Sequence_1",
-        "sNotificationEmailAddresses&Sequence_1",
-        "bNotificationsEnabled&Sequence_1",
-        "sPageConfigs&Sequence_1",
-        "oPageConfigs&Sequence_1",
-        "oWarmupResults&Sequence_1"
-      ],
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

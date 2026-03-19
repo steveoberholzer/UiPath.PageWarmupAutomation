@@ -27,7 +27,7 @@ namespace K2Warmup
                 typeof(UiPath.Testing.API.ITestingService),
                 typeof(UiPath.UIAutomationNext.API.Contracts.IUiAutomationAppService)
             };
-            _workflowRunnerServiceLazy = new Lazy<global::K2Warmup.WorkflowRunnerService>(() => new global::K2Warmup.WorkflowRunnerService(this.RunWorkflow));
+            _workflowRunnerServiceLazy = new Lazy<global::K2Warmup.WorkflowRunnerService>(() => new global::K2Warmup.WorkflowRunnerService(this.services));
 #pragma warning disable
             _connectionsManagerLazy = new Lazy<ConnectionsManager>(() => new ConnectionsManager(serviceContainer));
 #pragma warning restore

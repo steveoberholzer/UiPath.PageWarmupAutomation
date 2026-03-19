@@ -4,25 +4,36 @@
         <name>K2Warmup.Core</name>
     </assembly>
     <members>
-        <member name="M:K2Warmup.WorkflowRunnerService.Main">
+        <member name="M:K2Warmup.Workflows.Helpers.Selectors.CssSelectorToUiPathSelector(System.String)">
             <summary>
-            Invokes the Main.xaml
+            Translates a CSS selector string into a UiPath web selector string.
             </summary>
+            <param name="cssSelector">The CSS selector, e.g. "body > div.L3eUgb > h1"</param>
+            <returns>A UiPath-compatible selector string, e.g. "&lt;webctrl css-selector='body&gt;div.L3eUgb&gt;h1' /&gt;"</returns>
         </member>
-        <member name="M:K2Warmup.WorkflowRunnerService.GetAssets">
+        <member name="M:K2Warmup.WorkflowRunnerService.GetAssets(System.Boolean)">
             <summary>
             Invokes the Workflows/Config/GetAssets.xaml
             </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPage(System.String,System.Boolean,System.String,System.String,System.Int32)">
+        <member name="M:K2Warmup.WorkflowRunnerService.Main(System.Boolean)">
+            <summary>
+            Invokes the Main.xaml
+            </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
+        </member>
+        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPage(System.String,System.Boolean,System.String,System.String,System.Int32,System.Boolean)">
             <summary>
             Invokes the Workflows/Automation/WarmupPage.xaml
             </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPageShell(K2Warmup.Workflows.Parsing.Models.PageConfig,System.Int32)">
+        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPageShell(K2Warmup.Workflows.Parsing.Models.PageConfig,System.Int32,System.Boolean)">
             <summary>
             Invokes the Workflows/Automation/WarmupPageShell.xaml
             </summary>
+            <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
     </members>
 </doc>
