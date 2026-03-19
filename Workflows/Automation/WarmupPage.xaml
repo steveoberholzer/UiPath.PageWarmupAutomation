@@ -5,6 +5,7 @@
     <x:Property Name="in_sElementSelector" Type="InArgument(x:String)" />
     <x:Property Name="in_sSelectorType" Type="InArgument(x:String)" />
     <x:Property Name="in_iTimeoutOverride" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_iGeneralTimeout" Type="InArgument(x:Int32)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
@@ -105,12 +106,39 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WarmupPage" sap:VirtualizedContainerService.HintSize="939,1064" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WarmupPage" sap:VirtualizedContainerService.HintSize="939,1121" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="iTimeoutInSeconds" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:MultipleAssign DisplayName="Calculate Timeout" sap:VirtualizedContainerService.HintSize="520,57" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">
+                <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">iTimeoutInSeconds</CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">
+                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">in_iTimeoutOverride &gt; 0 ? in_iTimeoutOverride : in_iGeneralTimeout</CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
     <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Open Page in Edge" sap:VirtualizedContainerService.HintSize="520,1041" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="56b940c2-5417-46c4-9626-9fcd5159d406" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
@@ -190,7 +218,9 @@
                           </InArgument>
                         </ui:Target.Selector>
                         <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
+                          <InArgument x:TypeArguments="x:Int32">
+                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">iTimeoutInSeconds * 1000</CSharpValue>
+                          </InArgument>
                         </ui:Target.TimeoutMS>
                         <ui:Target.WaitForReady>
                           <InArgument x:TypeArguments="ui:WaitForReady" />

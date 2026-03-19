@@ -40,9 +40,9 @@ namespace K2Warmup
         /// Invokes the Workflows/Automation/WarmupPage.xaml
         /// </summary>
         /// <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
-        public void WarmupPage(string in_sUrl, bool in_bWaitForElement, string in_sElementSelector, string in_sSelectorType, int in_iTimeoutOverride, System.Boolean isolated = false)
+        public void WarmupPage(string in_sUrl, bool in_bWaitForElement, string in_sElementSelector, string in_sSelectorType, int in_iTimeoutOverride, int in_iGeneralTimeout, System.Boolean isolated = false)
         {
-            var result = _services.WorkflowInvocationService.RunWorkflow(@"Workflows\Automation\WarmupPage.xaml", new Dictionary<string, object> { { "in_sUrl", in_sUrl }, { "in_bWaitForElement", in_bWaitForElement }, { "in_sElementSelector", in_sElementSelector }, { "in_sSelectorType", in_sSelectorType }, { "in_iTimeoutOverride", in_iTimeoutOverride } }, default, isolated, default, GetAssemblyName());
+            var result = _services.WorkflowInvocationService.RunWorkflow(@"Workflows\Automation\WarmupPage.xaml", new Dictionary<string, object> { { "in_sUrl", in_sUrl }, { "in_bWaitForElement", in_bWaitForElement }, { "in_sElementSelector", in_sElementSelector }, { "in_sSelectorType", in_sSelectorType }, { "in_iTimeoutOverride", in_iTimeoutOverride }, { "in_iGeneralTimeout", in_iGeneralTimeout } }, default, isolated, default, GetAssemblyName());
         }
 
         /// <summary>

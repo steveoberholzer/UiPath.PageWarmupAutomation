@@ -23,7 +23,7 @@
             </summary>
             <param name="isolated">Indicates whether to isolate executions (run them within a different process)</param>
         </member>
-        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPage(System.String,System.Boolean,System.String,System.String,System.Int32,System.Boolean)">
+        <member name="M:K2Warmup.WorkflowRunnerService.WarmupPage(System.String,System.Boolean,System.String,System.String,System.Int32,System.Int32,System.Boolean)">
             <summary>
             Invokes the Workflows/Automation/WarmupPage.xaml
             </summary>
